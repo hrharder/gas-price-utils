@@ -1,0 +1,14 @@
+dist: bionic
+language: node_js
+node_js:
+  - 10
+services:
+  - docker
+before_install:
+  - docker run -d --rm -p 8545:8545 gcr.io/zaidan-eth-net/0x-snapshot:latest
+install:
+  - yarn
+  - yarn build
+script:
+  - yarn lint
+  - yarn test:ci

@@ -1,0 +1,12 @@
+{
+    "name": "Gas Price Utilities",
+    "mode": "file",
+    "readme": "./README.md",
+    "theme": "markdown",
+    "out": "./docs",
+    "excludePrivate": true,
+    "excludeExternals": true,
+    "ignoreCompilerErrors": true,
+    "disableOutputCheck": true,
+    "includeDeclarations": true
+}

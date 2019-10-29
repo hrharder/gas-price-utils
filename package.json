@@ -1,0 +1,43 @@
+{
+  "name": "@habsyr/gas-price-utils",
+  "version": "0.0.0",
+  "description": "Utility functions for fetching current Ethereum gas prices and performing conversions.",
+  "main": "lib/index.js",
+  "repository": "https://github.com/hrharder/gas-price-utils",
+  "author": "Henry Harder",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf node_modules lib",
+    "lint": "tslint -p .",
+    "lint:fix": "tslint -p . --fix",
+    "docs": "typedoc ./src",
+    "test": "ts-mocha --exit test/*_test.ts"
+  },
+  "dependencies": {
+    "bignumber.js": "^9.0.0",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.7"
+  },
+  "devDependencies": {
+    "@0x/web3-wrapper": "^6.0.13",
+    "@types/mocha": "^5.2.7",
+    "@types/request": "^2.48.3",
+    "@types/request-promise-native": "^1.0.17",
+    "mocha": "^6.2.2",
+    "ts-mocha": "^6.0.0",
+    "tslint": "^5.20.0",
+    "typedoc": "^0.15.0",
+    "typedoc-plugin-markdown": "^2.2.11",
+    "typescript": "^3.6.4"
+  },
+  "files": [
+    "lib/*.js",
+    "lib/*.js.map",
+    "lib/*.d.ts"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
