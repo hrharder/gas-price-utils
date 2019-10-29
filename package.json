@@ -1,6 +1,6 @@
 {
   "name": "@habsyr/gas-price-utils",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Utility functions for fetching current Ethereum gas prices and performing conversions.",
   "main": "lib/index.js",
   "repository": "https://github.com/hrharder/gas-price-utils",
