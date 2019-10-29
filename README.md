@@ -10,7 +10,7 @@ Listed below are all exports from this package and links to their documentation.
 
 - **Async functions**
     - [`fetchGasPriceData`](./docs/globals.md#fetchgaspricedata) => Raw API data from ETH Gas Station.
-    - [`fetchGasPriceInWei`]((./docs/globals.md#fetchgaspriceinwei) ) => Convert ETH Gas Station data to base units by priority level.
+    - [`fetchGasPriceInWei`](./docs/globals.md#fetchgaspriceinwei ) => Convert ETH Gas Station data to base units by priority level.
 - **Sync functions**
     - [`gasStationUnitsToGwei`](./docs/globals.md#gasstationunitstogwei) => Convert units used by ETH Gas Station to the more common gwei.
     - [`gweiToWei`](./docs/globals.md#gweitowei) => Convert gwei values to wei (base units).
