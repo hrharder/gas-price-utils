@@ -1,3 +1,4 @@
+import { Web3Wrapper } from "@0x/web3-wrapper";
 import assert from "assert";
 import BigNumber from "bignumber.js";
 import request from "request-promise-native";
@@ -87,7 +88,9 @@ describe("gas-price-estimator unit tests", function (): void {
     describe("#gweiToWei", () => {
         it("should correctly convert a bignumber gwei value to wei", () => {
             const testValue = new BigNumber(361);
-            const expected = testValue.times("1e9");
+
+            // hack: double conversion to address conflicting bignumber.js versions
+            const expected = new BigNumber(Web3Wrapper.toBaseUnitAmount(testValue as any, 9).toString());
             const actual = gweiToWei(testValue);
             assert(expected.isEqualTo(actual), "converted one gwei should match one wei");
         });
@@ -110,19 +113,21 @@ describe("gas-price-estimator unit tests", function (): void {
 
     describe("#weiToGwei", () => {
         it("should correctly convert a bignumber wei value to gwei", () => {
-            const testValue = ONE_ETHER.times(3.14);
-            const expected = ONE_WEI.times("1e9").times(3.14);
+            const testValue = ONE_GWEI.times(3.14);
+
+            // hack: double conversion to address conflicting bignumber.js versions
+            const expected = new BigNumber(Web3Wrapper.toUnitAmount(testValue as any, 9).toString());
             const actual = weiToGwei(testValue);
             assert(expected.isEqualTo(actual), "converted wei value should match gwei");
         });
         it("should correctly convert a string wei value to gwei", () => {
-            const testValue = ONE_ETHER.times(0.05);
+            const testValue = ONE_GWEI.times(0.05);
             const expected = testValue.dividedBy("1e9");
             const actual = weiToGwei(testValue.toString());
             assert(expected.isEqualTo(actual), "converted wei value should match gwei");
         });
         it("should correctly convert a number wei value to gwei", () => {
-            const testValue = ONE_ETHER.times(2.42);
+            const testValue = ONE_GWEI.times(2.42);
             const expected = testValue.dividedBy("1e9");
             const actual = weiToGwei(testValue.toNumber());
             assert(expected.isEqualTo(actual), "converted wei value should match gwei");
